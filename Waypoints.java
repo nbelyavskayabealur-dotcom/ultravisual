@@ -28,8 +28,8 @@ public class Waypoints extends Module {
             m.translate(p[0] + 0.5 - cam.x, -cam.y, p[1] + 0.5 - cam.z);
             m.scale(6f, 1f, 6f);          // fat beam
             m.translate(-0.5, 0, -0.5);
-            BeaconBlockEntityRenderer.renderBeam(m, ctx.consumers(), ctx.tickDelta(), mc.world.getTime(),
-                    -64, 520, new float[]{0.7f, 0.4f, 1f});
+                        BeaconBlockEntityRenderer.renderBeam(m, ctx.consumers(), BeaconBlockEntityRenderer.BEAM_TEXTURE,
+                    ctx.tickDelta(), 1.0f, mc.world.getTime(), -64, 520, new float[]{0.7f, 0.4f, 1f}, 0.2f, 0.25f);
             m.pop();
         }
     }
