@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "dev.visuals.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "EntityRendererMixin", "HeldItemRendererMixin", "GameRendererMixin", "InGameHudMixin",
+    "EntityMixin", "CameraMixin", "ParticleManagerMixin", "SoundSystemMixin",
+    "InGameOverlayRendererMixin", "ClientPlayNetworkHandlerMixin", "ClientPlayerEntityMixin",
+    "ClientPlayerInteractionManagerMixin", "SimpleOptionAccessor"
+  ],
+  "injectors": { "defaultRequire": 1 }
+}
