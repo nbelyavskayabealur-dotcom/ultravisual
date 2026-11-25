@@ -5,6 +5,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Arrange sources
+        run: |
+          base=src/main/java/dev/visuals
+          mkdir -p $base/gui $base/mixin $base/module
+          find . -name '*.java' -not -path './src/*' -not -path './.git/*' | while read f; do
+            n=$(basename "$f")
+            case "$n" in
+              Theme.java|Draw.java|TargetTracker.java|VisualsClient.java) d=$base;;
+              ClickGuiScreen.java) d=$base/gui;;
+              *Mixin.java|SimpleOptionAccessor.java) d=$base/mixin;;
+              *) d=$base/module;;
+            esac
+            mv "$f" "$d/$n"
+          done
+          find src -name '*.java' | wc -l
       - uses: actions/setup-java@v4
         with:
           distribution: temurin
